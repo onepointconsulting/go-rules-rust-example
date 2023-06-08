@@ -1,0 +1,77 @@
+{
+  "contentType": "application/vnd.gorules.decision",
+  "nodes": [
+    {
+      "id": "16556ad3-438a-4122-97de-ccd2349eba51",
+      "type": "inputNode",
+      "position": {
+        "x": 240,
+        "y": 320
+      },
+      "name": "Request"
+    },
+    {
+      "id": "01b4cafb-98ea-4acb-a18c-216e6fda7bdf",
+      "type": "decisionTableNode",
+      "position": {
+        "x": 480,
+        "y": 320
+      },
+      "name": "decisionTableNode 1",
+      "content": {
+        "hitPolicy": "first",
+        "inputs": [
+          {
+            "field": "age",
+            "id": "sLhrnn12T6",
+            "name": "age",
+            "type": "expression"
+          }
+        ],
+        "outputs": [
+          {
+            "field": "parentalGuidance",
+            "id": "TTGgb24nHl",
+            "name": "parentalGuidance",
+            "type": "expression"
+          }
+        ],
+        "rules": [
+          {
+            "_id": "x5deuvCKq8",
+            "sLhrnn12T6": "< 18",
+            "TTGgb24nHl": "true"
+          },
+          {
+            "_id": "0z9KH5iSR7",
+            "sLhrnn12T6": ">= 18",
+            "TTGgb24nHl": "false"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2246ba71-42d6-40bd-b693-5149b88455ba",
+      "type": "outputNode",
+      "position": {
+        "x": 730,
+        "y": 320
+      },
+      "name": "Response"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1dcb4a3-3df2-4a60-ae2b-51f0c5fe7795",
+      "sourceId": "16556ad3-438a-4122-97de-ccd2349eba51",
+      "type": "edge",
+      "targetId": "01b4cafb-98ea-4acb-a18c-216e6fda7bdf"
+    },
+    {
+      "id": "f4a4fb51-85ae-42c4-80b4-a9aaf40a5a9b",
+      "sourceId": "01b4cafb-98ea-4acb-a18c-216e6fda7bdf",
+      "type": "edge",
+      "targetId": "2246ba71-42d6-40bd-b693-5149b88455ba"
+    }
+  ]
+}
